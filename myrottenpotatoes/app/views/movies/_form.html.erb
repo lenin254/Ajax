@@ -1,0 +1,13 @@
+<%= form_with(model: movie, local: true) do |form| %>
+  <!-- Tu formulario de edición aquí -->
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <!-- Otros campos del formulario -->
+
+  <div class="actions">
+    <%= form.submit 'Update Movie' %>
+  </div>
+<% end %>

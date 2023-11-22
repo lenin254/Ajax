@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <%- if flash[:notice] %>
-      <div class="row<%= (' adult' unless movie.rating =~ /^G|PG$/) %>">
+      <div class="row<%= (' adult' unless @movie.rating =~ /^G|PG$/) %>">
       <%- elsif flash[:alert] %>
       <div class="alert alert-danger text-center"><%=flash[:alert]%></div>
       <% end %>

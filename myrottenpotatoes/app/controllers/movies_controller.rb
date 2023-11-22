@@ -5,7 +5,8 @@ class MoviesController < ApplicationController
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
-    # will render render app/views/movies/show.html.haml by default
+    render(:partial => 'movie', :object => @movie) if request.xhr?
+    # will render app/views/movies/show.<extension> by default
   end
   def new
     @movie = Movie.new
@@ -24,7 +25,7 @@ class MoviesController < ApplicationController
   end
   def update
     @movie = Movie.find params[:id]
-    if (@movie.update_attributes(movie_params))
+    if (@movie.update(movie_params))
       redirect_to movie_path(@movie), :notice => "#{@movie.title} updated."
     else
       flash[:alert] = "#{@movie.title} could not be updated: " +
