@@ -25,3 +25,5 @@ class Movie < ActiveRecord::Base
         map(&:capitalize).join(' ')
     end
 end
+end 
+end
